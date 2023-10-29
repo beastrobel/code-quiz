@@ -1,4 +1,30 @@
 nav {
     display: flex;
     justify-content: space-between;
+    margin: 30px;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    width: 500px;
+    padding: 15px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: royalblue;
+    color: white;
+    text-align: left;
+}
+
+button:hover {
+    background-color: navy;   
+}
+
+.card {
+    margin: 50px;
+    padding: 50px 100px;
+    border: none;
 }
