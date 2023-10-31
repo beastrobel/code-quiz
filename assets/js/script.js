@@ -30,7 +30,7 @@ function countdown() {
         clearInterval(timeInterval);
 
         // Calls function to create and append image
-        displayMessage();
+        finish();
       }
     }, 1000);
 }
@@ -50,21 +50,66 @@ function firstQuestion() {
     let answerC = $("<button></button>").text('C. Alerts');
     let answerD = $("<button></button>").text('D. Numbers');
     $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
-    $('button').on("click", secondQuestion, remove);
+    $('button').click(function(){
+        remove();
+        secondQuestion();
+    });
 }
 
 function secondQuestion() {
-    var questionOne = $("<h3></h3>").text('The condition in an if/else statement is enclosed with ___________.');
-    let answerA = $("<button></button>").text('A. Strings');
-    let answerB = $("<button></button>").text('B. Booleans');
-    let answerC = $("<button></button>").text('C. Alerts');
-    let answerD = $("<button></button>").text('D. Numbers');
+    var questionOne = $("<h3></h3>").text('The condition in an if/else statement is enclosed with ___.');
+    let answerA = $("<button></button>").text('A. Quotes');
+    let answerB = $("<button></button>").text('B. Curly Brackets');
+    let answerC = $("<button></button>").text('C. Parenthesis');
+    let answerD = $("<button></button>").text('D. Square Brackets');
     $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
-    $('button').on("click", secondQuestion);
+    $('button').click(function(){
+        remove();
+        thirdQuestion();
+    });
+}
+
+function thirdQuestion() {
+    var questionOne = $("<h3></h3>").text('Arrays in JavaScript can be used to store ___.');
+    let answerA = $("<button></button>").text('A. Numbers and Strings');
+    let answerB = $("<button></button>").text('B. Other Arrays');
+    let answerC = $("<button></button>").text('C. Booleans');
+    let answerD = $("<button></button>").text('D. All of the Above');
+    $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
+    $('button').click(function(){
+        remove();
+        fourthQuestion();
+    });
+}
+
+function fourthQuestion() {
+    var questionOne = $("<h3></h3>").text('String values must be enclosed within ___ when being assigned to variables.');
+    let answerA = $("<button></button>").text('A. Commas');
+    let answerB = $("<button></button>").text('B. Curly Brackets');
+    let answerC = $("<button></button>").text('C. Quotes');
+    let answerD = $("<button></button>").text('D. Parenthesis');
+    $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
+    $('button').click(function(){
+        remove();
+        fifthQuestion();
+    });
+}
+
+function fifthQuestion() {
+    var questionOne = $("<h3></h3>").text('A very useful tool used during development and debugging for printing content to the debugger is:');
+    let answerA = $("<button></button>").text('A. JavaScript');
+    let answerB = $("<button></button>").text('B. Terminal/Bash');
+    let answerC = $("<button></button>").text('C. For Loops');
+    let answerD = $("<button></button>").text('D. console.log');
+    $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
+    $('button').click(function(){
+        remove();
+        finish();
+    });
 }
 
 
-function displayMessage() {
+function finish() {
     console.log ('Success!');
 }
 
