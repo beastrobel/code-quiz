@@ -10,12 +10,13 @@
 //Wraps code in JQuery function
 $(function(){
 
+var score = 0;
+
 //Appends start page
 var startScreen = $("<h2></h2>").text('Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!');
 var startButton = $("<button></button>").text('Start Quiz');
 startButton.attr('id', 'start');
 $('#quiz').append(startScreen, startButton);
-
 
 //Timer - Based on class example, modified for this project
 function countdown() {
@@ -23,7 +24,6 @@ function countdown() {
     var timeInterval = setInterval(function () {
       timeLeft--;
       $('#timer').textContent = 'Time: ' + timeLeft;
-      console.log(timeLeft);
 
       if(timeLeft <= 0) {
         // Stops execution of action at set interval
@@ -40,20 +40,39 @@ function remove() {
     $('h2').remove();
     $('h3').remove();
     $('button').remove();
+    $('p').remove();
 }
 
 //Displays questions
 function firstQuestion() {
     var questionOne = $("<h3></h3>").text('Commonly used data types DO NOT include:');
     let answerA = $("<button></button>").text('A. Strings');
+    //Adds a class to the wrong answer
+    answerA.attr('id', 'wrong');
     let answerB = $("<button></button>").text('B. Booleans');
+    answerB.attr('id', 'wrong');
     let answerC = $("<button></button>").text('C. Alerts');
+    //Adds a class to the correct answer, so that points can be added to the score variable
+    answerC.attr('id', 'correct');
     let answerD = $("<button></button>").text('D. Numbers');
+    answerB.attr('id', 'wrong');
     $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
-    $('button').click(function(){
-        remove();
-        secondQuestion();
+    //Listens for correct answer and adds 20 points to score
+    $('#correct').click(function(){
+        score = score + 20;
+        //Displays feedback to the user
+        let feedback = $("<p></p>").text('Correct!');
+        $('#quiz').append(feedback);
+        setTimeout(remove, 1500);
+        setTimeout(secondQuestion, 1500);
     });
+    $('#wrong').click(function(){
+        //Displays feedback to the user
+        let feedback = $("<p></p>").text('Wrong!');
+        $('#quiz').append(feedback);
+        setTimeout(remove, 1500);
+        setTimeout(secondQuestion, 1500);
+    });  
 }
 
 function secondQuestion() {
@@ -107,7 +126,6 @@ function fifthQuestion() {
         finish();
     });
 }
-
 
 function finish() {
     console.log ('Success!');
