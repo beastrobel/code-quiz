@@ -55,6 +55,8 @@ function firstQuestion() {
         console.log(score);
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Correct!');
+        //Adds id to feedback so that it can be removed later
+        feedback.attr('id', 'feedback');
         $('#quiz').append(feedback);
         setTimeout(remove, 1000);
         setTimeout(secondQuestion, 1000);
@@ -62,6 +64,8 @@ function firstQuestion() {
     $('#wrong').click(function(){
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Wrong!');
+        //Adds id to feedback so that it can be removed later
+        feedback.attr('id', 'feedback');
         $('#quiz').append(feedback);
         setTimeout(remove, 1000);
         setTimeout(secondQuestion, 1000);
@@ -85,6 +89,8 @@ function secondQuestion() {
         console.log(score);
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Correct!');
+        //Adds id to feedback so that it can be removed later
+        feedback.attr('id', 'feedback');
         $('#quiz').append(feedback);
         setTimeout(remove, 1000);
         setTimeout(thirdQuestion, 1000);
@@ -92,6 +98,8 @@ function secondQuestion() {
     $('#wrong').click(function(){
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Wrong!');
+        //Adds id to feedback so that it can be removed later
+        feedback.attr('id', 'feedback');
         $('#quiz').append(feedback);
         setTimeout(remove, 1000);
         setTimeout(thirdQuestion, 1000);
@@ -115,6 +123,8 @@ function thirdQuestion() {
         console.log(score);
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Correct!');
+        //Adds id to feedback so that it can be removed later
+        feedback.attr('id', 'feedback');        
         $('#quiz').append(feedback);
         setTimeout(remove, 1000);
         setTimeout(fourthQuestion, 1000);
@@ -122,6 +132,8 @@ function thirdQuestion() {
     $('#wrong').click(function(){
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Wrong!');
+        //Adds id to feedback so that it can be removed later
+        feedback.attr('id', 'feedback');        
         $('#quiz').append(feedback);
         setTimeout(remove, 1000);
         setTimeout(fourthQuestion, 1000);
@@ -145,6 +157,8 @@ function fourthQuestion() {
         console.log(score);
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Correct!');
+        //Adds id to feedback so that it can be removed later
+        feedback.attr('id', 'feedback');        
         $('#quiz').append(feedback);
         setTimeout(remove, 1000);
         setTimeout(fifthQuestion, 1000);
@@ -152,6 +166,8 @@ function fourthQuestion() {
     $('#wrong').click(function(){
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Wrong!');
+        //Adds id to feedback so that it can be removed later
+        feedback.attr('id', 'feedback');        
         $('#quiz').append(feedback);
         setTimeout(remove, 1000);
         setTimeout(fifthQuestion, 1000);
@@ -175,6 +191,8 @@ function fifthQuestion() {
         console.log(score);
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Correct!');
+        //Adds id to feedback so that it can be removed later
+        feedback.attr('id', 'feedback');        
         $('#quiz').append(feedback);
         setTimeout(remove, 1000);
         setTimeout(finish, 1000);
@@ -182,6 +200,8 @@ function fifthQuestion() {
     $('#wrong').click(function(){
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Wrong!');
+        //Adds id to feedback so that it can be removed later
+        feedback.attr('id', 'feedback');        
         $('#quiz').append(feedback);
         setTimeout(remove, 1000);
         setTimeout(finish, 1000);
