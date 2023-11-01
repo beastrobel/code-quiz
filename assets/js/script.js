@@ -1,13 +1,4 @@
-//InnerHTML dynamic
-//<h2>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</h2>
-//<button id="start">Start Quiz</button>
-//<h3>Question</h3>
-//<button>1. </button>
-//<button>2. </button>  
-//<button>3. </button>  
-//<button>4. </button>  
-
-//Wraps code in JQuery function
+ //Wraps code in JQuery function
 $(function(){
 
 var score = 0;
@@ -23,24 +14,25 @@ function countdown() {
     var timeLeft = 75;
     var timeInterval = setInterval(function () {
       timeLeft--;
-      $('#timer').textContent = 'Time: ' + timeLeft;
+      $('#timer').text('Time: ' + timeLeft);
 
       if(timeLeft <= 0) {
         // Stops execution of action at set interval
         clearInterval(timeInterval);
 
         // Calls function to create and append image
+        remove();
         finish();
       }
     }, 1000);
 }
-
+ 
 //Removes start screen and questions
 function remove() {
     $('h2').remove();
     $('h3').remove();
     $('button').remove();
-    $('p').remove();
+    $('#feedback').remove();
 }
 
 //Displays questions
@@ -60,75 +52,145 @@ function firstQuestion() {
     //Listens for correct answer and adds 20 points to score
     $('#correct').click(function(){
         score = score + 20;
+        console.log(score);
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Correct!');
         $('#quiz').append(feedback);
-        setTimeout(remove, 1500);
-        setTimeout(secondQuestion, 1500);
+        setTimeout(remove, 1000);
+        setTimeout(secondQuestion, 1000);
     });
     $('#wrong').click(function(){
         //Displays feedback to the user
         let feedback = $("<p></p>").text('Wrong!');
         $('#quiz').append(feedback);
-        setTimeout(remove, 1500);
-        setTimeout(secondQuestion, 1500);
+        setTimeout(remove, 1000);
+        setTimeout(secondQuestion, 1000);
     });  
 }
 
 function secondQuestion() {
-    var questionOne = $("<h3></h3>").text('The condition in an if/else statement is enclosed with ___.');
+    var questionTwo = $("<h3></h3>").text('The condition in an if/else statement is enclosed with ___.');
     let answerA = $("<button></button>").text('A. Quotes');
+    answerA.attr('id', 'wrong');
     let answerB = $("<button></button>").text('B. Curly Brackets');
+    answerB.attr('id', 'wrong');
     let answerC = $("<button></button>").text('C. Parenthesis');
+    answerA.attr('id', 'correct');
     let answerD = $("<button></button>").text('D. Square Brackets');
-    $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
-    $('button').click(function(){
-        remove();
-        thirdQuestion();
+    answerA.attr('id', 'wrong');
+    $('#quiz').append(questionTwo, answerA, answerB, answerC, answerD);
+    //Listens for correct answer and adds 20 points to score
+    $('#correct').click(function(){
+        score = score + 20;
+        console.log(score);
+        //Displays feedback to the user
+        let feedback = $("<p></p>").text('Correct!');
+        $('#quiz').append(feedback);
+        setTimeout(remove, 1000);
+        setTimeout(thirdQuestion, 1000);
     });
+    $('#wrong').click(function(){
+        //Displays feedback to the user
+        let feedback = $("<p></p>").text('Wrong!');
+        $('#quiz').append(feedback);
+        setTimeout(remove, 1000);
+        setTimeout(thirdQuestion, 1000);
+    });  
 }
 
 function thirdQuestion() {
-    var questionOne = $("<h3></h3>").text('Arrays in JavaScript can be used to store ___.');
+    var questionThree = $("<h3></h3>").text('Arrays in JavaScript can be used to store ___.');
     let answerA = $("<button></button>").text('A. Numbers and Strings');
+    answerA.attr('id', 'wrong');
     let answerB = $("<button></button>").text('B. Other Arrays');
+    answerB.attr('id', 'wrong');
     let answerC = $("<button></button>").text('C. Booleans');
+    answerC.attr('id', 'wrong');
     let answerD = $("<button></button>").text('D. All of the Above');
-    $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
-    $('button').click(function(){
-        remove();
-        fourthQuestion();
+    answerA.attr('id', 'correct');
+    $('#quiz').append(questionThree, answerA, answerB, answerC, answerD);
+    //Listens for correct answer and adds 20 points to score
+    $('#correct').click(function(){
+        score = score + 20;
+        console.log(score);
+        //Displays feedback to the user
+        let feedback = $("<p></p>").text('Correct!');
+        $('#quiz').append(feedback);
+        setTimeout(remove, 1000);
+        setTimeout(fourthQuestion, 1000);
     });
+    $('#wrong').click(function(){
+        //Displays feedback to the user
+        let feedback = $("<p></p>").text('Wrong!');
+        $('#quiz').append(feedback);
+        setTimeout(remove, 1000);
+        setTimeout(fourthQuestion, 1000);
+    });  
 }
 
 function fourthQuestion() {
-    var questionOne = $("<h3></h3>").text('String values must be enclosed within ___ when being assigned to variables.');
+    var questionFour = $("<h3></h3>").text('String values must be enclosed within ___ when being assigned to variables.');
     let answerA = $("<button></button>").text('A. Commas');
+    answerA.attr('id', 'wrong');
     let answerB = $("<button></button>").text('B. Curly Brackets');
+    answerA.attr('id', 'wrong');
     let answerC = $("<button></button>").text('C. Quotes');
+    answerA.attr('id', 'correct');
     let answerD = $("<button></button>").text('D. Parenthesis');
-    $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
-    $('button').click(function(){
-        remove();
-        fifthQuestion();
+    answerA.attr('id', 'wrong');
+    $('#quiz').append(questionFour, answerA, answerB, answerC, answerD);
+    //Listens for correct answer and adds 20 points to score
+    $('#correct').click(function(){
+        score = score + 20;
+        console.log(score);
+        //Displays feedback to the user
+        let feedback = $("<p></p>").text('Correct!');
+        $('#quiz').append(feedback);
+        setTimeout(remove, 1000);
+        setTimeout(fifthQuestion, 1000);
     });
+    $('#wrong').click(function(){
+        //Displays feedback to the user
+        let feedback = $("<p></p>").text('Wrong!');
+        $('#quiz').append(feedback);
+        setTimeout(remove, 1000);
+        setTimeout(fifthQuestion, 1000);
+    });  
 }
 
 function fifthQuestion() {
-    var questionOne = $("<h3></h3>").text('A very useful tool used during development and debugging for printing content to the debugger is:');
+    var questionFive = $("<h3></h3>").text('A very useful tool used during development and debugging for printing content to the debugger is:');
     let answerA = $("<button></button>").text('A. JavaScript');
+    answerA.attr('id', 'wrong');
     let answerB = $("<button></button>").text('B. Terminal/Bash');
+    answerB.attr('id', 'wrong');
     let answerC = $("<button></button>").text('C. For Loops');
+    answerC.attr('id', 'wrong');
     let answerD = $("<button></button>").text('D. console.log');
-    $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
-    $('button').click(function(){
-        remove();
-        finish();
+    answerD.attr('id', 'correct');
+    $('#quiz').append(questionFive, answerA, answerB, answerC, answerD);
+    //Listens for correct answer and adds 20 points to score
+    $('#correct').click(function(){
+        score = score + 20;
+        console.log(score);
+        //Displays feedback to the user
+        let feedback = $("<p></p>").text('Correct!');
+        $('#quiz').append(feedback);
+        setTimeout(remove, 1000);
+        setTimeout(finish, 1000);
     });
+    $('#wrong').click(function(){
+        //Displays feedback to the user
+        let feedback = $("<p></p>").text('Wrong!');
+        $('#quiz').append(feedback);
+        setTimeout(remove, 1000);
+        setTimeout(finish, 1000);
+    });  
 }
 
 function finish() {
-    console.log ('Success!');
+    var finishScreen = $("<h2></h2>").text('Your score: ' + score);
+    $('#quiz').append(finishScreen);
 }
 
 startButton.click(function(){
