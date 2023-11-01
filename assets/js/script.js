@@ -1,6 +1,7 @@
  //Wraps code in JQuery function
 $(function(){
 
+var timeLeft = 75;
 var score = 0;
 var answerA = '';
 var answerB = '';
@@ -11,12 +12,11 @@ var feedback = '';
 //Appends start page
 var startScreen = $("<h2></h2>").text('Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!');
 var startButton = $("<button></button>").text('Start Quiz');
-startButton.attr('id', 'start');
+startButton.attr('class', 'button');
 $('#quiz').append(startScreen, startButton);
 
 //Timer - Based on class example, modified for this project
 function countdown() {
-    var timeLeft = 75;
     var timeInterval = setInterval(function () {
       timeLeft--;
       $('#timer').text('Time: ' + timeLeft);
@@ -56,8 +56,8 @@ function firstQuestion() {
     answerD = $("<button></button>").text('D. Numbers');
     answerD.attr('class', 'wrong');
     $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
-    //Listens for correct answer and adds 20 points to score
     $('.correct').click(function(){
+        //Listens for correct answer and adds 20 points to score
         score = score + 20;
         console.log(score);
         //Displays feedback to the user
@@ -154,7 +154,7 @@ function fourthQuestion() {
     answerB = $("<button></button>").text('B. Curly Brackets');
     answerB.attr('class', 'wrong');
     answerC = $("<button></button>").text('C. Quotes');
-    answerD.attr('class', 'correct');
+    answerC.attr('class', 'correct');
     answerD = $("<button></button>").text('D. Parenthesis');
     answerD.attr('class', 'wrong');
     $('#quiz').append(questionFour, answerA, answerB, answerC, answerD);
@@ -216,9 +216,22 @@ function fifthQuestion() {
 }
 
 function finish() {
-    var finishScreen = $("<h2></h2>").text('Your score: ' + score);
-    $('#quiz').append(finishScreen);
+    var finishScreen = $("<h2></h2>").text('Your final score is: ' + score);
+    var form = $("<form></form>");
+    var label = $("<label></label>").text('Enter your initials');
+    var input = $("<input></input>");
+    var submitButton = $("<button></button>").text('Submit');
+    submitButton.attr('class', 'button');
+    $('#quiz').append(finishScreen, form, label, input, submitButton);
+    //Saves user's initials and score to local storage
+    submitButton.click(function(){
+        var user = input.val();
+        console.log(user);
+        localStorage.setItem(user, score);
+    });
 }
+
+
 
 startButton.click(function(){
     countdown();

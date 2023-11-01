@@ -39,7 +39,7 @@ button:hover {
     border: none;
 }
 
-#start {
+.button {
     align-self: center;
     text-align: center;
     font-size: 21px;
