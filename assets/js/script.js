@@ -40,6 +40,9 @@ function remove() {
     $('#feedback').remove();
     $('.wrong').remove();
     $('.correct').remove();
+    $('form').remove();
+    $('label').remove();
+    $('input').remove();
 }
 
 //Displays questions
@@ -225,13 +228,19 @@ function finish() {
     $('#quiz').append(finishScreen, form, label, input, submitButton);
     //Saves user's initials and score to local storage
     submitButton.click(function(){
-        var user = input.val();
+        var user = input.val() + '-' + score;
         console.log(user);
-        localStorage.setItem(user, score);
+        localStorage.setItem('high score', user);
+        remove();
+        highScores();
     });
 }
 
-
+function highScores() {
+    var header = $("<h3></h3>").text('High Scores');
+    var highScores = $("<h4></h4>").text(localStorage.getItem('high score'));
+    $('#quiz').append(header, highScores);
+}
 
 startButton.click(function(){
     countdown();
