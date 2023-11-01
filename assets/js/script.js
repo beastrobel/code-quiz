@@ -38,6 +38,8 @@ function remove() {
     $('h3').remove();
     $('button').remove();
     $('#feedback').remove();
+    $('.wrong').remove();
+    $('.correct').remove();
 }
 
 //Displays questions
@@ -45,17 +47,17 @@ function firstQuestion() {
     var questionOne = $("<h3></h3>").text('Commonly used data types DO NOT include:');
     answerA = $("<button></button>").text('A. Strings');
     //Adds a class to the wrong answer
-    answerA.attr('id', 'wrong');
+    answerA.attr('class', 'wrong');
     answerB = $("<button></button>").text('B. Booleans');
-    answerB.attr('id', 'wrong');
+    answerB.attr('class', 'wrong');
     answerC = $("<button></button>").text('C. Alerts');
     //Adds a class to the correct answer, so that points can be added to the score variable
-    answerC.attr('id', 'correct');
+    answerC.attr('class', 'correct');
     answerD = $("<button></button>").text('D. Numbers');
-    answerB.attr('id', 'wrong');
+    answerD.attr('class', 'wrong');
     $('#quiz').append(questionOne, answerA, answerB, answerC, answerD);
     //Listens for correct answer and adds 20 points to score
-    $('#correct').click(function(){
+    $('.correct').click(function(){
         score = score + 20;
         console.log(score);
         //Displays feedback to the user
@@ -66,7 +68,7 @@ function firstQuestion() {
         setTimeout(remove, 1000);
         setTimeout(secondQuestion, 1000);
     });
-    $('#wrong').click(function(){
+    $('.wrong').click(function(){
         //Displays feedback to the user
         feedback = $("<p></p>").text('Wrong!');
         //Adds id to feedback so that it can be removed later
@@ -80,16 +82,16 @@ function firstQuestion() {
 function secondQuestion() {
     var questionTwo = $("<h3></h3>").text('The condition in an if/else statement is enclosed with ___.');
     answerA = $("<button></button>").text('A. Quotes');
-    answerA.attr('id', 'wrong');
+    answerA.attr('class', 'wrong');
     answerB = $("<button></button>").text('B. Curly Brackets');
-    answerB.attr('id', 'wrong');
+    answerB.attr('class', 'wrong');
     answerC = $("<button></button>").text('C. Parenthesis');
-    answerA.attr('id', 'correct');
+    answerC.attr('class', 'correct');
     answerD = $("<button></button>").text('D. Square Brackets');
-    answerA.attr('id', 'wrong');
+    answerD.attr('class', 'wrong');
     $('#quiz').append(questionTwo, answerA, answerB, answerC, answerD);
     //Listens for correct answer and adds 20 points to score
-    $('#correct').click(function(){
+    $('.correct').click(function(){
         score = score + 20;
         console.log(score);
         //Displays feedback to the user
@@ -100,7 +102,7 @@ function secondQuestion() {
         setTimeout(remove, 1000);
         setTimeout(thirdQuestion, 1000);
     });
-    $('#wrong').click(function(){
+    $('.wrong').click(function(){
         //Displays feedback to the user
         feedback = $("<p></p>").text('Wrong!');
         //Adds id to feedback so that it can be removed later
@@ -114,16 +116,16 @@ function secondQuestion() {
 function thirdQuestion() {
     var questionThree = $("<h3></h3>").text('Arrays in JavaScript can be used to store ___.');
     answerA = $("<button></button>").text('A. Numbers and Strings');
-    answerA.attr('id', 'wrong');
+    answerA.attr('class', 'wrong');
     answerB = $("<button></button>").text('B. Other Arrays');
-    answerB.attr('id', 'wrong');
+    answerB.attr('class', 'wrong');
     answerC = $("<button></button>").text('C. Booleans');
-    answerC.attr('id', 'wrong');
+    answerC.attr('class', 'wrong');
     answerD = $("<button></button>").text('D. All of the Above');
-    answerA.attr('id', 'correct');
+    answerD.attr('class', 'correct');
     $('#quiz').append(questionThree, answerA, answerB, answerC, answerD);
     //Listens for correct answer and adds 20 points to score
-    $('#correct').click(function(){
+    $('.correct').click(function(){
         score = score + 20;
         console.log(score);
         //Displays feedback to the user
@@ -134,7 +136,7 @@ function thirdQuestion() {
         setTimeout(remove, 1000);
         setTimeout(fourthQuestion, 1000);
     });
-    $('#wrong').click(function(){
+    $('.wrong').click(function(){
         //Displays feedback to the user
         feedback = $("<p></p>").text('Wrong!');
         //Adds id to feedback so that it can be removed later
@@ -148,16 +150,16 @@ function thirdQuestion() {
 function fourthQuestion() {
     var questionFour = $("<h3></h3>").text('String values must be enclosed within ___ when being assigned to variables.');
     answerA = $("<button></button>").text('A. Commas');
-    answerA.attr('id', 'wrong');
+    answerA.attr('class', 'wrong');
     answerB = $("<button></button>").text('B. Curly Brackets');
-    answerA.attr('id', 'wrong');
+    answerB.attr('class', 'wrong');
     answerC = $("<button></button>").text('C. Quotes');
-    answerA.attr('id', 'correct');
+    answerD.attr('class', 'correct');
     answerD = $("<button></button>").text('D. Parenthesis');
-    answerA.attr('id', 'wrong');
+    answerD.attr('class', 'wrong');
     $('#quiz').append(questionFour, answerA, answerB, answerC, answerD);
     //Listens for correct answer and adds 20 points to score
-    $('#correct').click(function(){
+    $('.correct').click(function(){
         score = score + 20;
         console.log(score);
         //Displays feedback to the user
@@ -168,7 +170,7 @@ function fourthQuestion() {
         setTimeout(remove, 1000);
         setTimeout(fifthQuestion, 1000);
     });
-    $('#wrong').click(function(){
+    $('.wrong').click(function(){
         //Displays feedback to the user
         feedback = $("<p></p>").text('Wrong!');
         //Adds id to feedback so that it can be removed later
@@ -182,16 +184,16 @@ function fourthQuestion() {
 function fifthQuestion() {
     var questionFive = $("<h3></h3>").text('A very useful tool used during development and debugging for printing content to the debugger is:');
     answerA = $("<button></button>").text('A. JavaScript');
-    answerA.attr('id', 'wrong');
+    answerA.attr('class', 'wrong');
     answerB = $("<button></button>").text('B. Terminal/Bash');
-    answerB.attr('id', 'wrong');
+    answerB.attr('class', 'wrong');
     answerC = $("<button></button>").text('C. For Loops');
-    answerC.attr('id', 'wrong');
+    answerC.attr('class', 'wrong');
     answerD = $("<button></button>").text('D. console.log');
-    answerD.attr('id', 'correct');
+    answerD.attr('class', 'correct');
     $('#quiz').append(questionFive, answerA, answerB, answerC, answerD);
     //Listens for correct answer and adds 20 points to score
-    $('#correct').click(function(){
+    $('.correct').click(function(){
         score = score + 20;
         console.log(score);
         //Displays feedback to the user
@@ -202,7 +204,7 @@ function fifthQuestion() {
         setTimeout(remove, 1000);
         setTimeout(finish, 1000);
     });
-    $('#wrong').click(function(){
+    $('.wrong').click(function(){
         //Displays feedback to the user
         feedback = $("<p></p>").text('Wrong!');
         //Adds id to feedback so that it can be removed later
